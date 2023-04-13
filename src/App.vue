@@ -28,15 +28,15 @@
         <img v-if="selectedImage()[item]" :src="selectedImage()[item]" width="40" height="40" alt="">
       </SelectButton>
     </div>
-    <div class="option flex justify-center items-center">
+    <div class="option flex justify-center">
       <SelectButton 
         class="tabs-item flex justify-center items-center"
         v-for="(item, index) in images[tab]"
         :key="index"
-        :active="tab === item"
+        :active="selectedIndex[tab] === index"
         @click="selectOption(index)"
       >
-        <img v-if="item" :src="item" width="40" height="40" alt="">
+        <img v-show="item" :src="item" width="40" height="40" alt="">
       </SelectButton>
     </div>
   </main>
@@ -234,17 +234,35 @@ canvas {
   flex-wrap: wrap;
   border-bottom: 1px solid rgba(163, 163, 163, 0.2);
 }
+@media (max-width: 1260px) {
+  .tabs {
+    padding: 20px 2rem;
+  }
+  main {
+    padding: 40px 3rem;
+  }
+}
+@media (max-width: 800px) {
+  .tabs {
+    padding: 20px;
+  }
+  main {
+    padding: 40px 20px;
+  }
+}
 .tabs-item {
   margin-right: 15px;
   margin-bottom: 12px;
 }
 .option {
+  min-height: 300px;
   margin-top: 20px;
   width: 100%;
   flex-wrap: wrap;
 }
 .controls {
   padding: 12px 0;
+  flex-wrap: wrap;
 }
 .refrsh {
   cursor: pointer;

@@ -19,6 +19,7 @@ const props = withDefaults(defineProps<PropsTypes>(), {
 
 <style scoped>
 .button {
+  min-width: 64px;
   border-radius: 0.375rem;
   background-color: rgba(245,245,245);
   cursor: pointer;
