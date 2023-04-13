@@ -41,5 +41,6 @@ module.exports = {
     }],
     // 非空文件的末尾强制执行至少一个换行符（或没有换行符）。
     'eol-last': ["error", "always"],
+    'no-multiple-empty-lines': "error",
   },
 };

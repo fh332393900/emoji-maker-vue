@@ -34,7 +34,7 @@
         v-for="(item, index) in images[tab]"
         :key="index"
         :active="tab === item"
-        @click="selectOption(item, index)"
+        @click="selectOption(index)"
       >
         <img v-if="item" :src="item" width="40" height="40" alt="">
       </SelectButton>
@@ -58,7 +58,7 @@ const canvasSize = 640;
 
 const tab = ref<EmojiSlice>('head');
 const canvas = ref<HTMLCanvasElement | null>(null);
-const images = reactive<Record<EmojiSlice, any[]>>({
+const images = reactive<Record<EmojiSlice, string[]>>({
   head: [],
   eyes: [],
   eyebrows: [],
@@ -74,7 +74,6 @@ const selectedIndex = reactive<Record<EmojiSlice, number>>({
 });
 
 const selectedImage = () => {
-  console.log(images.head[0]);
   return {
     head: images.head[selectedIndex.head],
     eyes: images.eyes[selectedIndex.eyes],
@@ -97,7 +96,6 @@ const getRandom = () => {
 };
 
 const loadImg = async () => {
-  
   // head
   const headModules = import.meta.glob<SvgImageModule>('./assets/head/*.svg');
   const fullHeadImages = await resolveImportGlobModule(headModules);
@@ -142,7 +140,8 @@ const resolveImportGlobModule = async (modules: Record<string, ImportModuleFunct
   return loadedModules.map((module: { default: any; }) => module.default);
 };
 
-const exportImage = (blob: any) => {
+const exportImage = (blob: Blob | null) => {
+  if (!blob) return;
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
@@ -152,7 +151,7 @@ const exportImage = (blob: any) => {
 
 const toSVGBlob = async () => {
   const parser = new DOMParser();
-  const documents = await Promise.all(Object.values(selectedImage()).map((image: any) => fetch(image).then(response => response.text())));
+  const documents = await Promise.all(Object.values(selectedImage()).map((image: string) => fetch(image).then(response => response.text())));
   const svg = document.createElement('svg');
   svg.setAttribute('width', '32');
   svg.setAttribute('height', '32');
@@ -200,7 +199,7 @@ const draw = () => {
 const selectTab = (activeTab: EmojiSlice) => {
   tab.value = activeTab;
 };
-const selectOption = (item: any, index: number) => {
+const selectOption = (index: number) => {
   selectedIndex[tab.value] = index;
   draw();
 };
