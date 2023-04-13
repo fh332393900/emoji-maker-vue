@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "target": "ESNext",
+    "lib": ["es2015", "es2017.object", "dom", "ES2020"]
   },
 
   "references": [

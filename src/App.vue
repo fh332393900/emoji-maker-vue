@@ -129,7 +129,7 @@ const pathToImage = (path: string) => {
     }
     const img = new Image(10, 10)
     img.src = path
-    img.onload = (e) => {
+    img.onload = () => {
       resolve(img)
     }
   })
@@ -141,7 +141,7 @@ const resolveImportGlobModule = async (modules: Record<string, ImportModuleFunct
   return loadedModules.map((module: { default: any; }) => module.default)
 };
 
-const exportImage = (blob: Blob) => {
+const exportImage = (blob: any) => {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
