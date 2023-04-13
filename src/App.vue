@@ -56,16 +56,16 @@ type EmojiSlice = 'head' | 'eyes' | 'eyebrows' | 'mouth' | 'detail';
 const tabs: EmojiSlice[] = ['head', 'eyes', 'eyebrows', 'mouth', 'detail'];
 const canvasSize = 640;
 
-const tab = ref('head');
+const tab = ref<EmojiSlice>('head');
 const canvas = ref<HTMLCanvasElement | null>(null);
-const images = reactive<any>({
+const images = reactive<Record<EmojiSlice, any[]>>({
   head: [],
   eyes: [],
   eyebrows: [],
   mouth: [],
   detail: [],
 });
-const selectedIndex = reactive<any>({
+const selectedIndex = reactive<Record<EmojiSlice, number>>({
   head: 0,
   eyes: 0,
   eyebrows: 0,
@@ -74,18 +74,18 @@ const selectedIndex = reactive<any>({
 });
 
 const selectedImage = () => {
-  console.log(images.head[0])
+  console.log(images.head[0]);
   return {
     head: images.head[selectedIndex.head],
     eyes: images.eyes[selectedIndex.eyes],
     eyebrows: images.eyebrows[selectedIndex.eyebrows],
     mouth: images.mouth[selectedIndex.mouth],
     detail: images.detail[selectedIndex.detail],
-  }
+  };
 };
 
 const randomInt = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 const getRandom = () => {
@@ -97,21 +97,22 @@ const getRandom = () => {
 };
 
 const loadImg = async () => {
+  
   // head
-  const headModules = import.meta.glob<SvgImageModule>('./assets/head/*.svg')
-  const fullHeadImages = await resolveImportGlobModule(headModules)
+  const headModules = import.meta.glob<SvgImageModule>('./assets/head/*.svg');
+  const fullHeadImages = await resolveImportGlobModule(headModules);
   // eyes
-  const eyesModules = import.meta.glob<SvgImageModule>('./assets/eyes/*.svg')
-  const fullEyesImages = await resolveImportGlobModule(eyesModules)
+  const eyesModules = import.meta.glob<SvgImageModule>('./assets/eyes/*.svg');
+  const fullEyesImages = await resolveImportGlobModule(eyesModules);
   // eyebrows
-  const eyebrowsModules = import.meta.glob<SvgImageModule>('./assets/eyebrows/*.svg')
-  const fullEyebrowsImages = await resolveImportGlobModule(eyebrowsModules)
+  const eyebrowsModules = import.meta.glob<SvgImageModule>('./assets/eyebrows/*.svg');
+  const fullEyebrowsImages = await resolveImportGlobModule(eyebrowsModules);
   // mouth
-  const mouthModules = import.meta.glob<SvgImageModule>('./assets/mouth/*.svg')
-  const fullMouthImages = await resolveImportGlobModule(mouthModules)
+  const mouthModules = import.meta.glob<SvgImageModule>('./assets/mouth/*.svg');
+  const fullMouthImages = await resolveImportGlobModule(mouthModules);
   // detail
-  const detailModules = import.meta.glob<SvgImageModule>('./assets/details/*.svg')
-  const fullDetailImages = await resolveImportGlobModule(detailModules)
+  const detailModules = import.meta.glob<SvgImageModule>('./assets/details/*.svg');
+  const fullDetailImages = await resolveImportGlobModule(detailModules);
   
   images.head = fullHeadImages;
   images.eyes = ['', ...fullEyesImages];
@@ -125,20 +126,20 @@ const loadImg = async () => {
 const pathToImage = (path: string) => {
   return new Promise<HTMLImageElement | null>(resolve => {
     if (path === '') {
-      resolve(null)
+      resolve(null);
     }
-    const img = new Image(10, 10)
-    img.src = path
+    const img = new Image(10, 10);
+    img.src = path;
     img.onload = () => {
-      resolve(img)
-    }
-  })
+      resolve(img);
+    };
+  });
 };
 const resolveImportGlobModule = async (modules: Record<string, ImportModuleFunction>) => {
-  const imports = Object.values(modules).map((importFn: () => any) => importFn())
-  const loadedModules = await Promise.all(imports)
+  const imports = Object.values(modules).map((importFn: () => any) => importFn());
+  const loadedModules = await Promise.all(imports);
 
-  return loadedModules.map((module: { default: any; }) => module.default)
+  return loadedModules.map((module: { default: any; }) => module.default);
 };
 
 const exportImage = (blob: any) => {
@@ -151,7 +152,7 @@ const exportImage = (blob: any) => {
 
 const toSVGBlob = async () => {
   const parser = new DOMParser();
-  const documents = await Promise.all(Object.values(selectedImage()).map((image: any) => fetch(image).then(response => response.text())))
+  const documents = await Promise.all(Object.values(selectedImage()).map((image: any) => fetch(image).then(response => response.text())));
   const svg = document.createElement('svg');
   svg.setAttribute('width', '32');
   svg.setAttribute('height', '32');
@@ -161,8 +162,8 @@ const toSVGBlob = async () => {
 
   documents.flatMap((doc: string) => {
     const childNode = parser.parseFromString(doc, 'image/svg+xml').documentElement;
-    console.log(childNode)
-    svg.appendChild(childNode)
+    console.log(childNode);
+    svg.appendChild(childNode);
   });
   return new Blob([svg.outerHTML], {type: 'image/svg+xml'});
 };
@@ -173,13 +174,13 @@ const draw = () => {
   const eyebrowsPath = selectedImage().eyebrows;
   const mouthPath = selectedImage().mouth;
   const detailPath = selectedImage().detail;
-  console.log(headPath)
+  console.log(headPath);
   Promise.all([
     pathToImage(headPath),
     pathToImage(eyesPath),
     pathToImage(eyebrowsPath),
     pathToImage(mouthPath),
-    pathToImage(detailPath)
+    pathToImage(detailPath),
   ]).then(images => {
     console.log(images, 'images');
     const ctx = (canvas.value as HTMLCanvasElement).getContext('2d');
@@ -193,8 +194,8 @@ const draw = () => {
     setTimeout(() => {
       (canvas.value as HTMLCanvasElement).classList.remove('animation');
     }, 500);
-  })
-}
+  });
+};
 
 const selectTab = (activeTab: EmojiSlice) => {
   tab.value = activeTab;

@@ -1,5 +1,5 @@
 /* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution')
+require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
   root: true,
@@ -7,9 +7,39 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'eslint:recommended',
     '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting'
+    '@vue/eslint-config-prettier/skip-formatting',
   ],
   parserOptions: {
-    ecmaVersion: 'latest'
-  }
-}
+    ecmaVersion: 'latest',
+  },
+  'rules': {
+    "indent": ["error", 2],
+    //关闭行末分号提示/报错
+    'semi': 2,
+    //关闭定义变量未使用提示/报错
+    'no-unused-vars': 2,
+    //在写逗号时，逗号前面不需要加空格，而逗号后面需要添加空格
+    "comma-spacing": [
+      2,
+      {
+        "before": false,
+        "after": true,
+      },
+    ],
+    //使用=== !== 代替== != .
+    "eqeqeq": [
+      2,
+      "allow-null",
+    ],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      // 当最后一个元素或属性与闭括号 ] 或 } 在 不同的行时，要求使用拖尾逗号；当在 同一行时，禁止使用拖尾逗号。
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never",
+    }],
+    // 非空文件的末尾强制执行至少一个换行符（或没有换行符）。
+    'eol-last': ["error", "always"],
+  },
+};
