@@ -9,7 +9,7 @@
         <img src="./assets/svg/refrsh.svg" width="28" alt="refrsh" />
       </div>
       <div class="btn" @click="canvas?.toBlob(exportImage)">
-        <img src="./assets/download.svg" width="28" alt="download" />
+        <img src="./assets/svg/download.svg" width="28" alt="download" />
         <span>Export PNG</span>
       </div>
       <div class="btn" @click="toSVGBlob().then(exportImage)">
@@ -213,7 +213,7 @@ main {
   align-items: center;
   flex-direction: column;
   margin-top: 16px;
-  background-color: #fff;
+  background-color: var(--color-box);
   padding: 40px 6rem;
   border-radius: 20px;
   box-shadow: 0 25px 50px -12px var(--un-shadow-color, rgba(0,0,0,0.25));
@@ -270,6 +270,7 @@ canvas {
   min-width: 48px;
   height: 48px;
   border-radius: 50%;
+  background-color: var(--color-box-small);
   transition: background-color 0.2s;
 }
 .refrsh:hover {
@@ -282,7 +283,7 @@ canvas {
   cursor: pointer;
   font-size: 16px;
   padding: 8px 20px;
-  background-color: rgba(245,245,245);
+  background-color: var(--color-box-small);
   border-radius: 20px;
   transition: background-color 0.2s;
 }

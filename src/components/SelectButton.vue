@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<PropsTypes>(), {
 .button {
   min-width: 64px;
   border-radius: 0.375rem;
-  background-color: rgba(245,245,245);
+  background-color: var(--color-box-small);
   cursor: pointer;
   transition: all 0.2s;
   transition-property: color,background-color;

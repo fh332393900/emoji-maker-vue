@@ -1,20 +1,7 @@
 @import './base.css';
 @import './public.css';
 
-html {
-  background-color: #f5f3ff;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-}
 
-
-html.dark {
-  background-color: #333333;
-  color-scheme: dark;
-}
-
-body {
-  background: transparent;
-}
 
 a {
   text-decoration: none;
