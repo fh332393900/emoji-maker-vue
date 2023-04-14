@@ -6,14 +6,29 @@
     </div>
     <div class="controls flex justify-center items-center">
       <div class="refrsh flex justify-center items-center" @click="getRandom();draw()">
-        <img src="./assets/svg/refrsh.svg" width="28" alt="refrsh" />
+        <img
+          :class="{'white-filter': store.getTheme === 'dark'}"
+          src="./assets/svg/refrsh.svg"
+          width="28"
+          alt="refrsh"
+        />
       </div>
       <div class="btn" @click="canvas?.toBlob(exportImage)">
-        <img src="./assets/svg/download.svg" width="28" alt="download" />
+        <img
+          :class="{'white-filter': store.getTheme === 'dark'}"
+          src="./assets/svg/download.svg"
+          width="28"
+          alt="download"
+        />
         <span>Export PNG</span>
       </div>
       <div class="btn" @click="toSVGBlob().then(exportImage)">
-        <img src="./assets/svg/download.svg" width="28" alt="download" />
+        <img
+          :class="{'white-filter': store.getTheme === 'dark'}"
+          src="./assets/svg/download.svg"
+          width="28"
+          alt="download"
+        />
         <span>Export SVG</span>
     </div>
     </div>
@@ -48,6 +63,7 @@ import { ref, reactive } from 'vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 import SelectButton from './components/SelectButton.vue';
+import { useThemeStore } from '@/stores/theme';
 
 type SvgImageModule = typeof import('*.svg');
 type ImportModuleFunction = () => Promise<SvgImageModule>;
@@ -56,6 +72,7 @@ type EmojiSlice = 'head' | 'eyes' | 'eyebrows' | 'mouth' | 'detail';
 const tabs: EmojiSlice[] = ['head', 'eyes', 'eyebrows', 'mouth', 'detail'];
 const canvasSize = 640;
 
+const store = useThemeStore();
 const tab = ref<EmojiSlice>('head');
 const canvas = ref<HTMLCanvasElement | null>(null);
 const images = reactive<Record<EmojiSlice, string[]>>({
@@ -292,5 +309,8 @@ canvas {
 }
 .btn:hover {
   background-color: rgba(221,214,254);
+}
+.white-filter {
+  filter: invert(1);
 }
 </style>
