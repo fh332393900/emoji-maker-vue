@@ -6,14 +6,14 @@
     </div>
     <div class="controls flex justify-center items-center">
       <div class="refrsh flex justify-center items-center" @click="getRandom();draw()">
-        <img src="./assets/refrsh.svg" width="28" alt="refrsh" />
+        <img src="./assets/svg/refrsh.svg" width="28" alt="refrsh" />
       </div>
       <div class="btn" @click="canvas?.toBlob(exportImage)">
         <img src="./assets/download.svg" width="28" alt="download" />
         <span>Export PNG</span>
       </div>
       <div class="btn" @click="toSVGBlob().then(exportImage)">
-        <img src="./assets/download.svg" width="28" alt="download" />
+        <img src="./assets/svg/download.svg" width="28" alt="download" />
         <span>Export SVG</span>
     </div>
     </div>
@@ -267,6 +267,7 @@ canvas {
 .refrsh {
   cursor: pointer;
   width: 48px;
+  min-width: 48px;
   height: 48px;
   border-radius: 50%;
   transition: background-color 0.2s;
