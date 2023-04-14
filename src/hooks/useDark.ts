@@ -2,7 +2,6 @@ export type Theme = 'light' | 'dark';
 import { useThemeStore } from '../stores/theme';
 
 export function useTheme() {
-  
   /**
    * 设置主题模式
    * @param {Theme} theme 主题

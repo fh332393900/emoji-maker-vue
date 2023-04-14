@@ -26,7 +26,6 @@ const nowTheme = getTheme();
 const theme = ref<Theme>(nowTheme);
 
 const toggleTheme = () => {
-  console.log(theme.value, '111111');
   const val = theme.value === 'light' ? 'dark' : 'light';
   theme.value = val;
   setTheme(val);
