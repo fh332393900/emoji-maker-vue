@@ -17,6 +17,6 @@ footer {
 footer div,a {
   font-weight: 600;
   margin-right: 14px;
-  color: rgba(167,139,250);
+  color: var(--primary);
 }
 </style>

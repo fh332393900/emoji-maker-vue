@@ -20,7 +20,7 @@
           width="28"
           alt="download"
         />
-        <span>Export PNG</span>
+        <span>{{ $t('action.exportPNG') }}</span>
       </div>
       <div class="btn" @click="toSVGBlob().then(exportImage)">
         <img
@@ -29,7 +29,7 @@
           width="28"
           alt="download"
         />
-        <span>Export SVG</span>
+        <span>{{ $t('action.exportSVG') }}</span>
     </div>
     </div>
     <div class="tabs flex justify-center items-center">

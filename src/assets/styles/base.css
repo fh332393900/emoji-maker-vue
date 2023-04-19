@@ -1,5 +1,6 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  --primary: rgba(167,139,250);
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -46,6 +47,9 @@
   --section-gap: 160px;
   --color-box: var(--vt-c-white);
   --color-box-small: var(--bg-box-white);
+
+  --color-menu: var(--vt-c-white);
+  --color-menu-item: rgba(0, 0, 0, .05);
 }
 :root.dark {
   --color-background: var(--bg-c-black);
@@ -53,6 +57,8 @@
 
   --color-box: var(--bg-box-black);
   --color-box-small: var(--bg-box-gray);
+  --color-menu: #242526;
+  --color-menu-item: hsla(0,0%,100%,.05);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -66,6 +72,8 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-white);
+    --color-menu: #242526;
+    --color-menu-item: hsla(0,0%,100%,.05);
   }
 }
 
