@@ -13,6 +13,9 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   'rules': {
+    "vue/multi-word-component-names": [0, {
+      "ignores": [],
+    }],
     "indent": ["error", 2],
     //关闭行末分号提示/报错
     'semi': 2,

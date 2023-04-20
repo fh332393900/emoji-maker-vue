@@ -12,4 +12,7 @@ export default defineConfig({
     },
   },
   base: './',
+  define: {
+    APP_BUILD_DATE: JSON.stringify(new Date()),
+  },
 });

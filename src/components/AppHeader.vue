@@ -29,9 +29,10 @@
 </template>
 
 <script lang="ts" setup name="AppHeader">
+import { useAppStore } from '@/stores/app';
 import { useTheme } from '@/hooks/useDark';
 import type { Theme } from '@/hooks/useDark';
-import { locales } from '../locales/i18n';
+import { locales, setLocalLang } from '../locales/i18n';
 import { useI18n } from 'vue-i18n';
 import sun from '../assets/svg/sun.svg';
 import moon from '../assets/svg/moon.svg';
@@ -39,6 +40,7 @@ import { ref, watch } from 'vue';
 import useClickOutside from '../hooks/useClickOutside';
 
 const { setTheme, getTheme } = useTheme();
+
 const nowTheme = getTheme();
 const theme = ref<Theme>(nowTheme);
 const menuShow = ref(false);
@@ -69,7 +71,10 @@ const handleLocaleName = (locale: string) => {
 };
 const changeLanguage = (lang: string) => {
   locale.value = lang;
-  localStorage.setItem('lang', lang);
+  setLocalLang(lang);
+  
+  const store = useAppStore();
+  store.setLanguage(lang);
   menuShow.value = false;
 };
 function closeMenu() {

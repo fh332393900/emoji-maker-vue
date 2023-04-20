@@ -1,6 +1,6 @@
 {
   "name": "emoji-maker-vue",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -12,13 +12,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "dayjs": "^1.11.7",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.2",
