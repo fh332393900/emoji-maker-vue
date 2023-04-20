@@ -30,6 +30,8 @@
   --bg-box-black: rgba(34,34,34);
   --bg-box-gray: rgba(82,82,82);
   --bg-box-white: rgba(245,245,245);
+
+  --c-text-secondary-light: #919191;
 }
 
 /* semantic color variables for this project */

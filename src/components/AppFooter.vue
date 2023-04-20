@@ -1,17 +1,19 @@
 <template>
   <footer>
-    <div class="app-info" :title="date">
+    <div class="app-info">
       <span>{{ buildInfo.env.MODE }}</span>
       &middot;
-      <span>{{ $t("appInfo.built_at", [shortDate]) }}</span>
+      <span :title="date">{{ $t("appInfo.built_at", [shortDate]) }}</span>
       &middot;
       <Link :href="`https://github.com/fh332393900/emoji-maker-vue/releases/tag/${buildInfo.version}`">
         v{{ buildInfo.version }}
       </Link>
     </div>
     <div class="author-info flex justify-center align-center">
-      <div>Steven Feng</div>
-      <div>|</div>
+      <Link href="https://stevenfeng.cn" target="_blank">
+        Steven Feng
+      </Link>
+      <div style="margin: 0 12px;">|</div>
       <Link href="https://github.com/fh332393900/emoji-maker-vue" target="_blank">
         Github
       </Link>
@@ -48,10 +50,10 @@ footer {
 }
 .app-info {
   text-align: center;
-  font-size: 0.9rem;
 }
-.author-info div,a {
+.app-info span {
+  font-style: italic;
   font-weight: 600;
-  margin-right: 14px;
+  font-size: 0.8rem;
 }
 </style>

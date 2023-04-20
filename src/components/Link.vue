@@ -26,5 +26,6 @@ a {
 }
 a:hover {
   text-decoration: underline;
+  color: var(--primary);
 }
 </style>

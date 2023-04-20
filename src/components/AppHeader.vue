@@ -1,6 +1,9 @@
 <template>
   <header class="glow-bg">
-    <h1>Emoji Maker</h1>
+    <h1>
+      Emoji Maker
+      <span class="env">{{ buildInfo.env.MODE }}</span>
+    </h1>
     <div class="btn">
       <div class="language">
         <svg @click.stop="menuShow = true" viewBox="0 0 24 24" width='1em' height='1em' xmlns='http://www.w3.org/2000/svg'>
@@ -32,6 +35,7 @@
 import { useAppStore } from '@/stores/app';
 import { useTheme } from '@/hooks/useDark';
 import type { Theme } from '@/hooks/useDark';
+import { useAppConfig } from '@/hooks/useAppConfig';
 import { locales, setLocalLang } from '../locales/i18n';
 import { useI18n } from 'vue-i18n';
 import sun from '../assets/svg/sun.svg';
@@ -48,6 +52,7 @@ const { locale } = useI18n();
 const dropdownMenuRef = ref<null | HTMLElement>(null);
 
 const isDropdownMenuOutside = useClickOutside(dropdownMenuRef);
+const { buildInfo } = useAppConfig();
 
 watch(menuShow, (newValue) => {
   if (newValue) {
@@ -144,5 +149,14 @@ h1 {
 }
 .active {
   color: var(--primary);
+}
+.env {
+  font-style: italic;
+  background-color: var(--color-menu-item);
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 4px;
+  padding: 4px 12px;
+  border-radius: 24px;
 }
 </style>

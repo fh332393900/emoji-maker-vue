@@ -11,7 +11,6 @@ export const useAppStore = defineStore('app', {
     setLanguage(lang: string) {
       localStorage.setItem('lang', lang);
       this.language = lang;
-      console.log(this.language, '-------');
     },
   },
   getters: {
