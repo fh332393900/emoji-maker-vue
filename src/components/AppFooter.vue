@@ -5,7 +5,7 @@
       &middot;
       <span :title="date">{{ $t("appInfo.built_at", [shortDate]) }}</span>
       &middot;
-      <Link :href="`https://github.com/fh332393900/emoji-maker-vue/releases/tag/${buildInfo.version}`">
+      <Link class="version" :href="`https://github.com/fh332393900/emoji-maker-vue/releases/tag/${buildInfo.version}`">
         v{{ buildInfo.version }}
       </Link>
     </div>
@@ -51,7 +51,7 @@ footer {
 .app-info {
   text-align: center;
 }
-.app-info span {
+.app-info span,.version {
   font-style: italic;
   font-weight: 600;
   font-size: 0.8rem;
