@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
+    "start": "npm run dev",
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
