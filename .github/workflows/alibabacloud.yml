@@ -29,7 +29,7 @@ env:
   REGISTRY: registry.cn-chengdu.aliyuncs.com
   NAMESPACE: stevenfeng-prod
   IMAGE: emoji-maker-vue
-  TAG: ${{ github.sha }}
+  TAG: $(git rev-parse --short HEAD)
 
 permissions:
   contents: read
