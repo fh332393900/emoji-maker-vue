@@ -7,7 +7,7 @@
 FROM node:lts-alpine
 
 ENV NODE_ENV=production
-
+COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 RUN npm install --production
