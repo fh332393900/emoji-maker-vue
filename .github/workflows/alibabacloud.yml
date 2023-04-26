@@ -64,12 +64,12 @@ jobs:
     - name: Deploy docker image
       uses: appleboy/ssh-action@master
       with:
-      host: ${{ secrets.SSH_HOST }} 
-      username: ${{ secrets.SSH_USERNAME }}
-      password: ${{ secrets.SSH_PASSWORD }}
-      script: |
-        docker stop emoji-maker-vue
-        docker rm emoji-maker-vue
-        docker rmi registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
-        docker pull registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
-        docker run -p 8082:80 -d --name emoji-maker-vue registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
+        host: ${{ secrets.SSH_HOST }} 
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          docker stop emoji-maker-vue
+          docker rm emoji-maker-vue
+          docker rmi registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
+          docker pull registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
+          docker run -p 8082:80 -d --name emoji-maker-vue registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
