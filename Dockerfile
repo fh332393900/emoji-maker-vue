@@ -12,6 +12,8 @@ WORKDIR /usr/src/app
 
 RUN npm install --production --silent && mv node_modules ../
 
+COPY . .
+
 RUN npm run build
 
 EXPOSE 8082
