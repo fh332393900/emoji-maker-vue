@@ -14,7 +14,7 @@ WORKDIR /usr/src/app
 
 RUN npm ci --legacy-peer-deps --only=production && npm cache clean --force
 
-RUN npm run build
+RUN npm run build-only
 
 EXPOSE 8082
 
