@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 
 RUN npm install --production
 
-RUN npm build
+RUN npm run build
 
 EXPOSE 8082
 
