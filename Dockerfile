@@ -4,15 +4,15 @@
 
 # COPY nginx.conf /etc/nginx/conf.d/
 
-FROM node:lts-alpine
+FROM node:18-alpine
 
 ENV NODE_ENV=production
+
 COPY . /usr/src/app
+
 WORKDIR /usr/src/app
 
-RUN npm install --production --silent && mv node_modules ../
-
-COPY . .
+RUN npm ci --legacy-peer-deps --only=production && npm cache clean --force
 
 RUN npm run build
 
