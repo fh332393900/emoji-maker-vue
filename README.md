@@ -12,8 +12,8 @@ An emoji expression maker
 
 <br/>
 <p align="center">
-  <a href=""><img src="https://img.shields.io/github/actions/workflow/status/fh332393900/emoji-maker-vue/alibabacloud.yml?style=flat-square&logo=github actions" alt="github actions"></a>
-  <a href=""><img src="https://img.shields.io/github/package-json/v/fh332393900/emoji-maker-vue/master?style=flat-square" alt="version"></a>
+  <a href="https://github.com/fh332393900/emoji-maker-vue/actions"><img src="https://img.shields.io/github/actions/workflow/status/fh332393900/emoji-maker-vue/alibabacloud.yml?style=flat-square&logo=github actions" alt="github actions"></a>
+  <a href="https://github.com/fh332393900/emoji-maker-vue/blob/master/package.json"><img src="https://img.shields.io/github/package-json/v/fh332393900/emoji-maker-vue/master?style=flat-square" alt="version"></a>
 </p>
 <br/>
 
