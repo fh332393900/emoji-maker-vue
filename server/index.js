@@ -9,4 +9,4 @@ app.listen(PORT, () => {
   console.info('App running: http://127.0.0.1:' + PORT);
 });
 
-app.use(express.static('dist'));
+app.use(express.static('dist/emoji-maker-vue'));

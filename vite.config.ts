@@ -11,6 +11,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  base: '/emoji-maker-vue',
   define: {
     APP_BUILD_DATE: JSON.stringify(new Date()),
   },
