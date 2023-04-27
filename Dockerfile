@@ -28,8 +28,6 @@ RUN adduser -S nextjs -u 1001
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/server ./server
 COPY --from=builder /app/dist ./dist
-RUN mkdir /app/dist/emoji-maker-vue
-COPY --from=builder /app/dist/emoji-maker-vue ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
