@@ -33,6 +33,6 @@ COPY --from=builder /app/package.json ./package.json
 
 USER node
 
-EXPOSE 80
+EXPOSE 8082
 
 CMD ["npm", "run", "serve"]

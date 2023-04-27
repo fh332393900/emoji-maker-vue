@@ -70,4 +70,4 @@ jobs:
           docker rm emoji-maker-vue
           docker rmi registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
           docker pull registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
-          docker run -p 8082:80 -d --name emoji-maker-vue registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
+          docker run -p 8082:8082 -d --name emoji-maker-vue registry.cn-chengdu.aliyuncs.com/stevenfeng-prod/emoji-maker-vue:latest
