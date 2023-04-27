@@ -1,46 +1,40 @@
-# emoji-maker-vue
+<p align="center">
+  <a href="https://elk.zone" target="_blank" rel="noopener noreferrer">
+    <img width="160" height="160" src="./public/favicon.svg" alt="Elk logo">
+  </a>
+</p>
 
-This template should help get you started developing with Vue 3 in Vite.
+<h1 align="center"/>Emoji Maker Vue <sup><em>alpha</em></sup></h1>
 
-## Recommended IDE Setup
+<p align="center">
+An emoji expression maker
+</p>
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<br/>
+<p align="center">
+  <a href=""><img src="https://img.shields.io/github/actions/workflow/status/fh332393900/emoji-maker-vue/alibabacloud.yml?style=flat-square&logo=github actions" alt="github actions"></a>
+  <a href=""><img src="https://img.shields.io/github/package-json/v/fh332393900/emoji-maker-vue/master?style=flat-square" alt="version"></a>
+</p>
+<br/>
 
-## Type Support for `.vue` Imports in TS
+## 🦄 Stack
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- [Vue](https://vuejs.org/) - The Progressive JavaScript Framework
+- [Pinia](https://pinia.vuejs.org/) - The Vue Store that you will enjoy using
+- [VueI18n](https://vue-i18n.intlify.dev/) - Internationalization plugin for Vue.js
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Local Setup
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Clone the repository and run on the root folder:
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
+npm i
 npm run dev
 ```
+### 📦 Build
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+```
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
