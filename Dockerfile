@@ -33,8 +33,6 @@ COPY --from=builder /app/package.json ./package.json
 
 USER node
 
-EXPOSE 8082
-
-ENV PORT 8082
+EXPOSE 80
 
 CMD ["npm", "run", "serve"]
