@@ -56,4 +56,8 @@ footer {
   font-weight: 600;
   font-size: 0.8rem;
 }
+.author-info >>> a {
+  font-style: italic;
+  font-weight: 600;
+}
 </style>
