@@ -138,8 +138,8 @@ const loadImg = async () => {
   getRandom();
   draw();
 };
-const pathToImage = (path: string) => {
-  return new Promise<HTMLImageElement | null>(resolve => {
+const pathToImage = async (path: string) => {
+  return new Promise<HTMLImageElement | null>((resolve) => {
     if (path === '') {
       resolve(null);
     }
@@ -147,6 +147,10 @@ const pathToImage = (path: string) => {
     img.src = path;
     img.onload = () => {
       resolve(img);
+    };
+    img.onerror = () => {
+      console.error(`Failed to load image: ${path}`);
+      resolve(null);
     };
   });
 };
@@ -157,13 +161,15 @@ const resolveImportGlobModule = async (modules: Record<string, ImportModuleFunct
   return loadedModules.map((module: { default: any; }) => module.default);
 };
 
-const exportImage = (blob: Blob | null) => {
+const exportImage = async (blob: Blob | null) => {
   if (!blob) return;
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = `emoji_${Date.now()}`;
+  document.body.appendChild(a); // 需要先添加到文档中才能触发点击
   a.click();
+  document.body.removeChild(a); // 使用完毕后移除
 };
 
 const toSVGBlob = async () => {
