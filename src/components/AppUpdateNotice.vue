@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-ignore
 import { useRegisterSW } from 'virtual:pwa-register/vue';
 
 const {
