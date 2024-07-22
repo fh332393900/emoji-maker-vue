@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" name="AppUpdateNotice">
 // @ts-ignore
 import { useRegisterSW } from 'virtual:pwa-register/vue';
 
@@ -15,8 +15,6 @@ const {
     }, 30000);
   },
 });
-console.log(offlineReady);
-console.log(needRefresh);
 
 async function close() {
   offlineReady.value = false;
