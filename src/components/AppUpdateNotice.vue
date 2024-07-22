@@ -15,6 +15,8 @@ const {
     }, 30000);
   },
 });
+console.log(offlineReady);
+console.log(needRefresh);
 
 async function close() {
   offlineReady.value = false;
