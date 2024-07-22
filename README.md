@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://stevenfeng.cn/emoji-maker-vue" target="_blank" rel="noopener noreferrer">
-    <img width="160" height="160" src="./public/favicon.svg" alt="Elk logo">
+    <img width="160" height="160" src="./public/favicon.svg" alt="emoji-maker-vue logo">
   </a>
 </p>
 

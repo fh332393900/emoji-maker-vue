@@ -56,6 +56,7 @@
     </div>
   </main>
   <AppFooter></AppFooter>
+  <AppUpdateNotice></AppUpdateNotice>
 </template>
 
 <script setup lang="ts" name="App">
@@ -63,6 +64,7 @@ import { ref, reactive } from 'vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 import SelectButton from './components/SelectButton.vue';
+import AppUpdateNotice from './components/AppUpdateNotice.vue';
 import { useThemeStore } from '@/stores/theme';
 
 type SvgImageModule = typeof import('*.svg');
