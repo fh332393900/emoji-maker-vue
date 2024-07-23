@@ -42,6 +42,13 @@ jobs:
     environment: production
 
     steps:
+    - name: 'Create env file'
+      run: |
+        touch .env
+        echo VITE_KV_REST_API_URL=${{ vars.VITE_KV_REST_API_URL }} >> .env
+        echo VITE_KV_REST_API_TOKEN=${{ vars.VITE_KV_REST_API_TOKEN }} >> .env
+        cat .env
+    
     - name: Checkout
       uses: actions/checkout@v3
     - run: npm install
