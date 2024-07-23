@@ -42,16 +42,16 @@ jobs:
     environment: production
 
     steps:
-    - name: 'Create env file'
-      run: |
-        touch .env
-        echo VITE_KV_REST_API_URL=${{ vars.VITE_KV_REST_API_URL }} >> .env
-        echo VITE_KV_REST_API_TOKEN=${{ vars.VITE_KV_REST_API_TOKEN }} >> .env
-        cat .env
-    
     - name: Checkout
       uses: actions/checkout@v3
     - run: npm install
+    - name: Make .env file
+      uses: SpicyPizza/create-envfile@v1.3
+      with:
+        envkey_DEBUG: false
+        envkey_VITE_KV_REST_API_URL: ${{ secrets.VITE_KV_REST_API_URL }}
+        envkey_VITE_KV_REST_API_TOKEN: ${{ secrets.VITE_KV_REST_API_TOKEN }}
+        file_name: .env
     - run: npm run build
 
     # Login to ACR

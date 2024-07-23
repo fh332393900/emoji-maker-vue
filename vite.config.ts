@@ -22,7 +22,7 @@ export default defineConfig({
   define: {
     APP_BUILD_DATE: JSON.stringify(new Date()),
     'process': {
-      env: {},
+      env: process.env,
       version: process.version,
     },
   },
