@@ -188,7 +188,6 @@ const toSVGBlob = async () => {
 
   documents.flatMap((doc: string) => {
     const childNode = parser.parseFromString(doc, 'image/svg+xml').documentElement;
-    console.log(childNode);
     svg.appendChild(childNode);
   });
   return new Blob([svg.outerHTML], {type: 'image/svg+xml'});
@@ -200,7 +199,6 @@ const draw = () => {
   const eyebrowsPath = selectedImage().eyebrows;
   const mouthPath = selectedImage().mouth;
   const detailPath = selectedImage().detail;
-  console.log(headPath);
   Promise.all([
     pathToImage(headPath),
     pathToImage(eyesPath),
@@ -208,7 +206,6 @@ const draw = () => {
     pathToImage(mouthPath),
     pathToImage(detailPath),
   ]).then(images => {
-    console.log(images, 'images');
     const ctx = (canvas.value as HTMLCanvasElement).getContext('2d');
     ctx?.clearRect(0, 0, (canvas.value as HTMLCanvasElement).width, (canvas.value as HTMLCanvasElement).height);
     
