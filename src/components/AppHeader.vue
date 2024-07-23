@@ -135,7 +135,7 @@ h1 {
   font-size: 14px;
   padding: 12px;
   border-radius: 0.4rem;
-  box-shadow: 0 5px 40px rgba(0, 0, 0 .2);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
   color: var(--color-text);
 }
 .dropdown-menu li {

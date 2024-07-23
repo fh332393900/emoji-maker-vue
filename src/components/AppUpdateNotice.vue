@@ -24,7 +24,7 @@ async function close() {
 
 <template>
   <div
-    v-if="needRefresh"
+    v-if="!needRefresh"
     class="pwa-toast"
     role="alert"
   >
@@ -37,6 +37,7 @@ async function close() {
       </span>
     </div>
     <button
+      class="reload"
       @click="updateServiceWorker()"
     >
       {{ $t('action.reload')}}
@@ -49,7 +50,7 @@ async function close() {
 
 <style scoped>
 .pwa-toast {
-  max-width: 200px;
+  max-width: 260px;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -70,5 +71,19 @@ button {
   padding: 6px 12px;
   margin-right: 12px;
   cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 5px;
+  color: var(--color-text);
+  background-color: var(--color-box-small);;
+  font-weight: 600;
+}
+.reload {
+  background-color: rgb(99, 234, 110);
+}
+button:hover {
+  background-color: rgba(221,214,254,0.7);
+}
+.reload:hover {
+  background-color: rgb(75, 215, 87);
 }
 </style>
