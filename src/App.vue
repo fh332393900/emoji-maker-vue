@@ -67,7 +67,7 @@ import AppFooter from './components/AppFooter.vue';
 import SelectButton from './components/SelectButton.vue';
 import AppUpdateNotice from './components/AppUpdateNotice.vue';
 import { useThemeStore } from '@/stores/theme';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/nuxt';
 
 type SvgImageModule = typeof import('*.svg');
 type ImportModuleFunction = () => Promise<SvgImageModule>;
