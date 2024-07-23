@@ -30,19 +30,19 @@ async function close() {
   >
     <div class="message">
       <span v-if="offlineReady">
-        应用已就绪
+        {{ $t('app_ready') }}
       </span>
       <span v-else>
-        新内容可用，点击重新加载按钮以更新。
+        {{ $t('app_update_notice') }}
       </span>
     </div>
     <button
       @click="updateServiceWorker()"
     >
-      重新加载
+      {{ $t('reload')}}
     </button>
     <button @click="close">
-      关闭
+      {{ $t('close')}}
     </button>
   </div>
 </template>

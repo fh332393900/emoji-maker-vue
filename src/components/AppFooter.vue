@@ -17,12 +17,14 @@
       <Link href="https://github.com/fh332393900/emoji-maker-vue" target="_blank">
         Github
       </Link>
+      <div style="margin: 0 12px;">|</div>
+      <div>{{ $t('appInfo.views') }}{{ store.views }}</div>
     </div>
   </footer>
 </template>
 
 <script lang="ts" setup name="AppFooter">
-import { ref, watch } from 'vue';
+import { ref, watch, watchEffect } from 'vue';
 import { useAppStore } from '@/stores/app';
 import { useDayJs } from '../hooks/useDayJs';
 import { useAppConfig } from '../hooks/useAppConfig';
@@ -33,6 +35,7 @@ const { dayjs } = useDayJs();
 const { buildInfo } = useAppConfig();
 const shortDate = ref('');
 const date = ref('');
+const views = ref(0);
 
 watch(
   () => store.language,
@@ -42,6 +45,10 @@ watch(
   },
   { immediate: true }
 );
+watchEffect(() => {
+  console.log(store.views, 'store.views');
+  views.value = store.views;
+});
 </script>
 
 <style scoped>
