@@ -42,6 +42,15 @@ jobs:
     environment: production
 
     steps:
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_DEBUG: false
+        VITE_KV_REST_API_URL: ${{ secrets.VITE_KV_REST_API_URL }}
+        VITE_KV_REST_API_TOKEN: ${{ secrets.VITE_KV_REST_API_TOKEN }}
+        file_name: .env
+
+    steps:
     - name: Checkout
       uses: actions/checkout@v3
     - run: npm install
