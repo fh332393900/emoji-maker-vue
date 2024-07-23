@@ -49,6 +49,7 @@ async function close() {
 
 <style scoped>
 .pwa-toast {
+  max-width: 200px;
   position: fixed;
   right: 0;
   bottom: 0;
