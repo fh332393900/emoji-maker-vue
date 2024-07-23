@@ -21,7 +21,9 @@ export default defineConfig({
   base: './',
   define: {
     APP_BUILD_DATE: JSON.stringify(new Date()),
-    'process.env': {},
-    'process.version': process.version,
+    'process': {
+      env: {},
+      version: process.version,
+    },
   },
 });
