@@ -18,7 +18,7 @@
         Github
       </Link>
       <div style="margin: 0 12px;">|</div>
-      <div>{{ $t('appInfo.views') }}{{ store.views }}</div>
+      <div class="views">{{ $t('appInfo.views') }}{{ store.views }}</div>
     </div>
   </footer>
 </template>
@@ -66,5 +66,9 @@ footer {
 .author-info >>> a {
   font-style: italic;
   font-weight: 600;
+}
+.views {
+  font-weight: 600;
+  font-style: italic;
 }
 </style>

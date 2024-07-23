@@ -13,8 +13,20 @@ const locales: LocaleObjectData[] = [
     name: 'English',
   },
   {
-    code: 'zh',
+    code: 'zh-cn',
     name: '简体中文',
+  },
+  {
+    code: 'ja',
+    name: '日本語',
+  },
+  {
+    code: 'ko',
+    name: '한국어',
+  },
+  {
+    code: 'fr',
+    name: 'Français',
   },
 ];
 export function useLanguage() {
