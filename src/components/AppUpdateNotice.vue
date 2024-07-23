@@ -30,19 +30,19 @@ async function close() {
   >
     <div class="message">
       <span v-if="offlineReady">
-        {{ $t('app_ready') }}
+        {{ $t('appInfo.app_ready') }}
       </span>
       <span v-else>
-        {{ $t('app_update_notice') }}
+        {{ $t('appInfo.app_update_notice') }}
       </span>
     </div>
     <button
       @click="updateServiceWorker()"
     >
-      {{ $t('reload')}}
+      {{ $t('action.reload')}}
     </button>
     <button @click="close">
-      {{ $t('close')}}
+      {{ $t('action.close')}}
     </button>
   </div>
 </template>
