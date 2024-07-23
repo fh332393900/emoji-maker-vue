@@ -24,7 +24,7 @@ async function close() {
 
 <template>
   <div
-    v-if="!needRefresh"
+    v-if="needRefresh"
     class="pwa-toast"
     role="alert"
   >
