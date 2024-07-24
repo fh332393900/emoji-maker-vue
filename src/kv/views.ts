@@ -1,16 +1,12 @@
-import { createClient } from "@vercel/kv";
+import kv from './index';
 
-const KV_REST_API_URL = import.meta.env.VITE_KV_REST_API_URL;
-const KV_REST_API_TOKEN = import.meta.env.VITE_KV_REST_API_TOKEN;
-const kv = createClient({
-  url: KV_REST_API_URL,
-  token: KV_REST_API_TOKEN,
-});
+/** 获取浏览量 */
 export const getViews = async () => {
   const views: null | number = await kv.get('views');
   return views;
 };
 
+/** 设置浏览量 */
 export const setViews = async (views: number) => {
   kv.set('views', views);
 };

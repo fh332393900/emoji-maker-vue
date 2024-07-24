@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 
 export const useAppStore = defineStore('app', {
   state: () => {
-    const localLang = localStorage.getItem('lang') || 'en';
+    const localLang = localStorage.getItem('lang') || navigator.language || 'en';
     const views = 0;
     return {
       language: localLang,

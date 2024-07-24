@@ -10,9 +10,12 @@
       </Link>
     </div>
     <div class="author-info flex justify-center align-center">
-      <Link href="https://stevenfeng.cn" target="_blank">
-        Steven Feng
-      </Link>
+      <div class="name">
+        Copyright © 2022 - 2024
+        <Link href="https://stevenfeng.cn" target="_blank">
+          Steven Feng
+        </Link>
+      </div>
       <div style="margin: 0 12px;">|</div>
       <Link href="https://github.com/fh332393900/emoji-maker-vue" target="_blank">
         Github
@@ -62,6 +65,11 @@ footer {
   font-style: italic;
   font-weight: 600;
   font-size: 0.8rem;
+}
+.author-info,.name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: italic;
 }
 .author-info >>> a {
   font-style: italic;
